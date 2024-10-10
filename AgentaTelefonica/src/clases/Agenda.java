@@ -8,10 +8,12 @@ import java.util.Set;
 public class Agenda implements IValidaciones {
 
     private Set<Contacto> listaContactos;
+    private int tamanioAgenda;
 
     //Constructor
     public Agenda() {
         listaContactos = new HashSet<>();
+        tamanioAgenda = 10;
     }
 
     //Getters y Setters
@@ -23,6 +25,13 @@ public class Agenda implements IValidaciones {
         this.listaContactos = listaContactos;
     }
 
+    public int getTamanioAgenda() {
+        return tamanioAgenda;
+    }
+
+    public void setTamanioAgenda(int tamanioAgenda) {
+        this.tamanioAgenda = tamanioAgenda;
+    }
 
     //Metodos
     public void anadirContacto(Contacto c){
@@ -51,20 +60,27 @@ public class Agenda implements IValidaciones {
     }
 
     public boolean agendaLlena(){
+        if (tamanioAgenda == listaContactos.size()) {
+            return true;
+        }
+
         return false;
     }
 
     public void espacioLibres(){
-
+        System.out.println("Espacio Libres: " + (tamanioAgenda - listaContactos.size()));
     }
 
     @Override
-    public boolean validarNombre(String nombre) {
+    public boolean validarNombre(String nombre, String apellido) {
+
+        for (Contacto c : listaContactos) {
+            if (c.getNombre().equalsIgnoreCase(nombre) && c.getApellido().equalsIgnoreCase(apellido)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
-    @Override
-    public boolean validarApellido(String apellido) {
-        return false;
-    }
 }

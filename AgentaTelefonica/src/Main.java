@@ -13,6 +13,7 @@ public class Main {
 
         do {
             System.out.println("Bienvenido al menú. Elija una opción.");
+            System.out.println("0. Definir el tamaño de la agenda.");
             System.out.println("1. Agregar contacto.");
             System.out.println("2. Buscar contacto.");
             System.out.println("3. Eliminar contacto.");
@@ -24,6 +25,12 @@ public class Main {
             opcion = scanner.nextLine();
 
             switch (opcion){
+                case "0":
+                    System.out.println("Ingrese el tamaño de la agenda: ");
+                    int tamañoAgenda = scanner.nextInt();
+                    agenda.setTamanioAgenda(tamañoAgenda);
+                    break;
+
                 case "1":
                     System.out.println("Ingrese el nombre: ");
                     String nombre = scanner.nextLine();
