@@ -21,7 +21,8 @@ public class Main {
             System.out.println("5. Verificar si la agenda esta llena.");
             System.out.println("6. Verificar el espacio disponible.");
             System.out.println("7. Mostrar la lista de contactos.");
-            System.out.println("8. Salir.");
+            System.out.println("8. Verificar si un contacto existe.");
+            System.out.println("9. Salir.");
             opcion = scanner.nextLine().toUpperCase();
 
             switch (opcion){
@@ -62,7 +63,11 @@ public class Main {
                     String apellidoEliminar = scanner.nextLine();
 
                     Contacto contactoEliminar = agenda.buscaContacto(nombreEliminar, apellidoEliminar);
-                    System.out.println(agenda.eliminarContacto(contactoEliminar));
+                    if (contactoEliminar == null){
+                        System.out.println("No se pudo eliminar.");
+                    }else {
+                        System.out.println(agenda.eliminarContacto(contactoEliminar));
+                    }
                     System.out.println("********************************************************\n");
                     break;
 
@@ -99,6 +104,22 @@ public class Main {
                     break;
 
                 case "8":
+                    System.out.println("Ingrese el nombre: ");
+                    String nombreExiste = scanner.nextLine();
+                    System.out.println("Ingrese el apellido: ");
+                    String apellidoExiste = scanner.nextLine();
+
+
+                    Contacto buscar = agenda.buscaContacto(nombreExiste, apellidoExiste);
+
+                    if (buscar == null){
+                        System.out.println("\n");
+                    }else {
+                        agenda.existeContacto(buscar);
+                    }
+                    break;
+
+                case "9":
 
                     System.out.println("Saliendo del menu.");
                     System.out.println("********************************************************\n");
@@ -109,7 +130,7 @@ public class Main {
             }
 
 
-        }while (!opcion.equals("8")); /*forma de negar un string*/
+        }while (!opcion.equals("9")); /*forma de negar un string*/
             System.out.println("Adios!");
 
 

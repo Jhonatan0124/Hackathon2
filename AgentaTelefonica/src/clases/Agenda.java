@@ -45,18 +45,16 @@ public class Agenda implements IValidaciones {
         }else {
             System.out.println("La agenda está llena.");
         }
-
-
     }
 
     public void existeContacto(Contacto c){
+
         boolean existe = validarNombre(c.getNombre(), c.getApellido());
         if (existe){
             System.out.println("El contacto si existe.");
         }else {
             System.out.println("El contacto no existe.");
         }
-
     }
 
     public void listarContactos(){
@@ -66,20 +64,24 @@ public class Agenda implements IValidaciones {
 
         Collections.sort(listaOrdenada, (c1, c2) -> c1.getNombre().compareToIgnoreCase(c2.getNombre()));
 
-
-        for (Contacto c: listaContactos ){
+        for (Contacto c: listaOrdenada ){
             System.out.println("Contactos: " + c);
         }
 
     }
 
     public Contacto buscaContacto(String nombre, String apellido){
-        for (Contacto c: listaContactos){
-            if (c.getNombre().equals(nombre) && c.getApellido().equals(apellido)){
-                System.out.println("Telefono: " + c.getTelefono());
-                return c;
+        if (listaContactos.isEmpty()){
+            System.out.println("Lista vacia.");
+        }else {
+            for (Contacto c: listaContactos){
+                if (c.getNombre().equals(nombre) && c.getApellido().equals(apellido)){
+                    System.out.println("Telefono: " + c.getTelefono());
+                    return c;
+                }
             }
         }
+
         System.out.println("No se encontro el contacto.");
         return null;
     }
@@ -95,14 +97,19 @@ public class Agenda implements IValidaciones {
     }
 
     public void modificarTelefono(String nombre, String apellido, String telefonoModifica ){
+        boolean encontrado = false;
         for (Contacto c: listaContactos){
             if (c.getNombre().equals(nombre) && c.getApellido().equals(apellido)){
                 c.setTelefono(telefonoModifica);
                 System.out.println("El telefono ha sido modificado.");
+                encontrado = true;
 
             }else {
                 continue;
             }
+        }
+        if (!encontrado){
+            System.out.println("No se encontró.");
         }
 
     }
