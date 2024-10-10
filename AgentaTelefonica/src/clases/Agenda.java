@@ -44,9 +44,15 @@ public class Agenda implements IValidaciones {
         }
     }
 
-//    public void existeContacto(Contacto c){
-//      Se utiliza la verificacion en el metodo añadirContacto
-//    }
+    public void existeContacto(Contacto c){
+        boolean existe = validarNombre(c.getNombre(), c.getApellido());
+        if (existe){
+            System.out.println("El contacto si existe.");
+        }else {
+            System.out.println("El contacto no existe.");
+        }
+
+    }
 
     public void listarContactos(){
 
@@ -67,7 +73,16 @@ public class Agenda implements IValidaciones {
         return "";
     }
 
-    public void modificarTelefono(String nombre, String apellido, String telefono ){
+    public void modificarTelefono(String nombre, String apellido, String telefonoModifica ){
+        for (Contacto c: listaContactos){
+            if (c.getNombre().equals(nombre) && c.getApellido().equals(apellido)){
+                c.setTelefono(telefonoModifica);
+                System.out.println("El telefono ha sido modificado.");
+
+            }else {
+                continue;
+            }
+        }
 
     }
 
