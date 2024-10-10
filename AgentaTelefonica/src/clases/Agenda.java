@@ -2,8 +2,7 @@ package clases;
 
 import Interfaces.IValidaciones;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Agenda implements IValidaciones {
 
@@ -56,8 +55,15 @@ public class Agenda implements IValidaciones {
     }
 
     public void listarContactos(){
+
+        // Convertir el Set a una List para poder ordenarla
+        List<Contacto> listaOrdenada = new ArrayList<>(listaContactos);
+
+        Collections.sort(listaOrdenada, (c1, c2) -> c1.getNombre().compareToIgnoreCase(c2.getNombre()));
+
+
         for (Contacto c: listaContactos ){
-            System.out.println("Contactos: " + c);//faLta añadir organizar alfabeticamente
+            System.out.println("Contactos: " + c);
         }
 
     }
