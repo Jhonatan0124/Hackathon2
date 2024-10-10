@@ -1,9 +1,11 @@
 package clases;
 
+import Interfaces.IValidaciones;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class Agenda {
+public class Agenda implements IValidaciones {
 
     private Set<Contacto> listaContactos;
 
@@ -37,7 +39,7 @@ public class Agenda {
     }
 
     public String buscaContacto(String nombre, String apellido){
-        return  "";
+        return  "numero de telefono";
     }
 
     public String eliminarContacto(Contacto c){
@@ -56,4 +58,13 @@ public class Agenda {
 
     }
 
+    @Override
+    public boolean validarNombre(String nombre) {
+        return false;
+    }
+
+    @Override
+    public boolean validarApellido(String apellido) {
+        return false;
+    }
 }
