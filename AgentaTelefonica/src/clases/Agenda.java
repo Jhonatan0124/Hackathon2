@@ -40,7 +40,8 @@ public class Agenda implements IValidaciones {
         if (existeNombreApellido){
             System.out.println("No se puede añadir ");
         }else{
-            System.out.println("Se añadio el nuevo contacto");
+            listaContactos.add(c);
+            System.out.println("El nuevo contacto añadido es: "+c);
         }
     }
 
@@ -49,6 +50,9 @@ public class Agenda implements IValidaciones {
 //    }
 
     public void listarContactos(){
+        for (Contacto c: listaContactos ){
+            System.out.println("Contactos: " + c);//faLta añadir organizar alfabeticamente
+        }
 
     }
 
@@ -64,7 +68,13 @@ public class Agenda implements IValidaciones {
     }
 
     public String eliminarContacto(Contacto c){
-        return "";
+        boolean contactoEncontrado = validarNombre(c.getNombre(), c.getApellido());
+        if (contactoEncontrado){
+            listaContactos.remove(c);
+            return "El contacto ha sido eliminado";
+        }else {
+            return "Contacto no encontrado";
+        }
     }
 
     public void modificarTelefono(String nombre, String apellido, String telefono ){

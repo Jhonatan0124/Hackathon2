@@ -57,8 +57,8 @@ public class Main {
                     System.out.println("Ingrese el apellido del contacto a eliminar: ");
                     String apellidoEliminar = scanner.nextLine();
 
-//                    Contacto contactoEliminar = agenda.buscaContacto(nombreEliminar, apellidoEliminar);
-//                    System.out.println(agenda.eliminarContacto(contactoEliminar));
+                    Contacto contactoEliminar = agenda.buscaContacto(nombreEliminar, apellidoEliminar);
+                    System.out.println(agenda.eliminarContacto(contactoEliminar));
                     break;
 
                 case "4":
