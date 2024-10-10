@@ -23,7 +23,7 @@ public class Agenda {
 
 
     //Metodos
-    public void añadirContacto(Contacto c){
+    public void anadirContacto(Contacto c){
 
 
     }
@@ -37,7 +37,7 @@ public class Agenda {
     }
 
     public String buscaContacto(String nombre, String apellido){
-        return  c.getTelefono();
+        return  "";
     }
 
     public String eliminarContacto(Contacto c){
@@ -49,7 +49,7 @@ public class Agenda {
     }
 
     public boolean agendaLlena(){
-        return agendaLlena;
+        return false;
     }
 
     public void espacioLibres(){

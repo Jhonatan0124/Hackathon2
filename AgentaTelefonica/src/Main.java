@@ -1,10 +1,14 @@
+import clases.Agenda;
+import clases.Contacto;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-//        Agenda agenda = new Agenda();
+        Agenda agenda = new Agenda();
+
         String opcion;
 
         do {
@@ -28,7 +32,7 @@ public class Main {
                     System.out.println("Ingrese el telefono: ");
                     String telefono = scanner.nextLine();
 
-                    agenda.añadirContacto(new Contacto(nombre, apellido, telefono));
+                    agenda.anadirContacto(new Contacto(nombre, apellido, telefono));
                     break;
 
                 case "2":
@@ -37,7 +41,7 @@ public class Main {
                     System.out.println("Ingrese el apellido que desea buscar: ");
                     String buscarApellido = scanner.nextLine();
 
-                    System.out.println(agenda.buscarContacto(buscarNombre, buscarApellido);
+                    System.out.println(agenda.buscaContacto(buscarNombre, buscarApellido));
                     break;
 
                 case "3":
@@ -46,8 +50,8 @@ public class Main {
                     System.out.println("Ingrese el apellido del contacto a eliminar: ");
                     String apellidoEliminar = scanner.nextLine();
 
-                    Contacto contactoEliminar = agenda.buscarContacto(nombreEliminar, apellidoEliminar);
-                    System.out.println(agenda.eliminarContacto(contactoEliminar));
+//                    Contacto contactoEliminar = agenda.buscaContacto(nombreEliminar, apellidoEliminar);
+//                    System.out.println(agenda.eliminarContacto(contactoEliminar));
                     break;
 
                 case "4":
@@ -58,7 +62,7 @@ public class Main {
                     System.out.println("Ingrese el nuevo telefono: ");
                     String telefonoModifica = scanner.nextLine();
 
-                    agenda.modifarTelefono(nombreModifica,apellidoModifica,telefonoModifica);
+                    agenda.modificarTelefono(nombreModifica,apellidoModifica,telefonoModifica);
 
                     break;
 
