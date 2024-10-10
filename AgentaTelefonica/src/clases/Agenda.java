@@ -36,13 +36,18 @@ public class Agenda implements IValidaciones {
     //Metodos
     public void anadirContacto(Contacto c){
         boolean existeNombreApellido = validarNombre(c.getNombre(), c.getApellido());
-
-        if (existeNombreApellido){
-            System.out.println("No se puede añadir ");
-        }else{
-            listaContactos.add(c);
-            System.out.println("El nuevo contacto añadido es: "+c);
+        if (listaContactos.size() < tamanioAgenda){
+            if (existeNombreApellido){
+                System.out.println("No se puede añadir ");
+            }else{
+                listaContactos.add(c);
+                System.out.println("El nuevo contacto añadido es: "+c);
+            }
+        }else {
+            System.out.println("La agenda está llena.");
         }
+
+
     }
 
     public void existeContacto(Contacto c){
