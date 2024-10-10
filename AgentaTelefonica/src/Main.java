@@ -27,8 +27,8 @@ public class Main {
             switch (opcion){
                 case "0":
                     System.out.println("Ingrese el tamaño de la agenda: ");
-                    int tamañoAgenda = scanner.nextInt();
-                    agenda.setTamanioAgenda(tamañoAgenda);
+                    int tamanioAgenda = scanner.nextInt();
+                    agenda.setTamanioAgenda(tamanioAgenda);
                     break;
 
                 case "1":

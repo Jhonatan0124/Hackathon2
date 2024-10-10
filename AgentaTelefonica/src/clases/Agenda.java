@@ -35,8 +35,13 @@ public class Agenda implements IValidaciones {
 
     //Metodos
     public void anadirContacto(Contacto c){
+        boolean existeNombreApellido = validarNombre(c.getNombre(), c.getApellido());
 
-
+        if (existeNombreApellido){
+            System.out.println("No se puede añadir ");
+        }else{
+            System.out.println("Se añadio el nuevo contacto");
+        }
     }
 
 //    public void existeContacto(Contacto c){
@@ -82,5 +87,4 @@ public class Agenda implements IValidaciones {
 
         return false;
     }
-
 }
