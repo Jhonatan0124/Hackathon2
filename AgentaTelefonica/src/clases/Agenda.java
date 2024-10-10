@@ -38,8 +38,15 @@ public class Agenda implements IValidaciones {
 
     }
 
-    public String buscaContacto(String nombre, String apellido){
-        return  "numero de telefono";
+    public Contacto buscaContacto(String nombre, String apellido){
+        for (Contacto c: listaContactos){
+            if (c.getNombre().equals(nombre) && c.getApellido().equals(apellido)){
+                System.out.println("Telefono: " + c.getTelefono());
+                return c;
+            }
+        }
+        System.out.println("No se encontro el contacto.");
+        return null;
     }
 
     public String eliminarContacto(Contacto c){
